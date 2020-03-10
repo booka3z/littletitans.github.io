@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-  <title>BlackGold: Logins and persistence for static sites</title>
+  <title>BlackGold: Docs - API - Update User</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Userbase is the easiest way to add user accounts and data persistence to your static site. No backend necessary.">
   <meta property="og:url" content="https://littletitans.github.io" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="The easiest way to add user accounts & persistence to your static site." />
+  <meta property="og:title" content="Userbase: Docs - API - Update User" />
   <meta property="og:image" content="https://littletitans.github.io/12ef1300db789c04e9245ac07b570de0.png" />
   <meta property="og:description" content="An obsessive collection of waste management and teenage financial literacy" />
   <meta property="og:site_name" content="BlackGold" />
@@ -57,7 +57,9 @@
     <div class="sm:flex sm:justify-between sm:items-center py-2 px-4">
       <div class="flex items-center justify-between h-10">
         <div class="flex-shrink-0">
-
+          <div>
+            <a href="/"><img alt="Userbase" class="h-8" src="/57a189ed68c8f15131a4bd1704ad2391.png"></a>
+          </div>
         </div>
         <div class="sm:hidden">
           <button onclick="toggleMenu()" type="button" class="block text-blackish hover:text-orange-700 focus:text-orange-700 focus:outline-none">
@@ -78,58 +80,39 @@
     </div>
   </header>
   <div class="container mx-auto max-w-4xl px-4">
-    <div class="flex justify-center pb-4">
-      <a href="/"><img alt="BlackGold" id="logo" src="/882fa773004b9b8c9cf7be0cd3bdb410.png"></a>
-    </div>
+    <!-- Docs - API - Update User -->
+    <div class="section">
+      <h2><a href="/docs/">Docs</a> : <a href="/docs/api/">API</a> : Update User</h2>
 
-    <div class="section mt-10">
-      <h1>Where Wei presents you with some <span class="highlight">perculiar</span> and <span class="highlight">eccentric</span> interest.</h1>
-    </div>
+      <p>The <span class="font-semibold">Update User</span> API lets you modify the protectedProfile property of any of your users by providing the ID of a user from your account. The user ID can be obtained from the Admin panel, or from the <a href="/docs/sdk/sign-up/">signUp</a>, <a href="/docs/sdk/sign-in/">signIn</a>, or <a href="/docs/sdk/init/">init</a> methods in the <a href="/docs/sdk/">Userbase SDK</a>.</p>
 
+      <pre>
+    <code class="language-bash">
+      curl 'https://v1.userbase.com/v1/admin/users/$USER_ID' \
+        -XPOST \
+        -H "Authorization: Bearer $ACCESS_TOKEN" \
+        -H "Content-Type: application/json" \
+        --data-binary '{ "protectedProfile":  {"paid", "true"} }'
+    </code>
+  </pre>
 
+      <h3 id="params">Parameters</h3>
 
-    <div class="section mt-10">
-      <h2 id="what-would-i-use-it">What can I learn about organic waste management?</h2>
-
-      <p>20% of the trash is food waste that could be recovered.</p>
       <ul>
-        <li>Who are the large national waste management companies?</li>
-        <li>Which counties and municipalities maintain their own waste collection and disposal operations?</li>
-        <li>What are the companies that specialize in certain discrete areas of waste management?</li>
-        <li>How do they price waste?</li>
-        <li>How to build and finance yard debris facilities?</li>
+        <li>
+          <span class="field">USER_ID</span> - The user ID to modify.
+        </li>
+        <li>
+          <span class="field">ACCESS_TOKEN</span> - Your access token.
+        </li>
+        <li>
+          <span class="field">Request Body</span> - The updated user metadata. Right now, only the <span class="field">protectedProfile</span> property can be modified by this API. The protected profile can only be modified by the Admin API, so it can be used for metadata that shouldn't by updated directly by the user (such as payment status info).
+        </li>
       </ul>
-
-      <p>Check out the <a href="/docs/faq/">a review of almost all books about composting</a> out there</p>
-    </div>
-
-    <div class="section mt-10">
-      <h2 id="what-would-i-use-it">What can I learn about teenage financial literacy?</h2>
-
-      <p>Financial literacy is the ability to understand and properly make optimal financial decisions starting in teenage years. How much do teenagers know about investments, money management, or personal finance? Do teenagers know how to get the money to buy houses, cars, or private jets? How does retirement work?
-        We want to show teenagers how major-life decisions like choosing a career, purchasing insurance, or setting aside money for retirement can have intentional or unexpected effects?</p>
-      <ul>
-        <li>How do you finance college education?</li>
-        <li>How do you decide on a job or jobs?</li>
-        <li>How do you buy a car?</li>
-        <li>How do you finance a house purchase?</li>
-        <li>What taxes do you have to pay?</li>
-      </ul>
-
-      <p>Check out the <a href="/docs/faq/">FAQ</a> for more details.</p>
-    </div>
-    <div class="section mt-10">
-      <h2 id="what-is-userbase">Other topics</h2>
-
-      <p id="description" class="description">Here are some things I have written when working on various projects.</p>
-
-      <h3 id="user-accounts">What can I do if I track all the ships in the ocean?</h3>
-      <p>This is a strategy Doc for a maritime analytics company. I led the product strategy and early sales for a maritime analytics company for six months. Here are my thoughts on maritime analytics industry.</p>
 
     </div>
 
     <hr>
-
     <footer class="text-center py-4 tracking-tight text-sm">
       <div>
         <nav class="pt-2 pb-4 text-center menu">
